@@ -68,4 +68,7 @@ Face는 컴포넌트의 한 면을 선택해 이동시킬 수 있는 장점이 �
 ![](image\11.png)
 
 'W'키를 누른 상태로 마우스 클릭을 하면 이동기준을 바꿀 수 있는 여러 메뉴가나옵니다.<br>
-ex) 월드 축 기준, Normal Average 기준 등등
+ex) 월드 축 기준, Normal Average 기준 등등 주로 쓰이는 메뉴는 Object, World, Normal Average.
+
+**Normal..?**
+-> Face나 Vertex는 3d에서 고유한 방향을 가지고 있는데 그 방향이 ''Normal''이라는 개념이다.
