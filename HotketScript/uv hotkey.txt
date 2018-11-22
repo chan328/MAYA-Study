@@ -1,0 +1,7 @@
+Cut UV : 
+polyPerformAction polyMapCut e 0;
+
+
+Move UV : 
+performPolyMapSewMove 0;
+

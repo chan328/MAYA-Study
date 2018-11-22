@@ -1,0 +1,72 @@
+-Slide Edge Tool (S) :
+
+SlideEdgeTool
+
+-Selec Edge Loop (a): 
+
+SelectEdgeLoop
+
+-Delete Loop (K) :
+
+PolyConvertToLoopAndDelete
+
+-Add LooP (L) : 
+
+
+PolyConvertToRingAndSplit
+
+
+
+-Full screen (Alt+Enter) : 
+
+int $ToggleTag = (($ToggleTag + 1) % 2);
+
+if ($ToggleTag)
+{
+HideUIElements;
+toggleMenuBarsInAllPanels 0;
+setMainMenubarVisible 0;
+
+$oldMH=`window -q -height $gMainWindow`;
+window -e -titleBar (!`window -q -titleBar $gMainWindow`) $gMainWindow;
+window -e -height $oldMH $gMainWindow;
+}
+else
+{
+ShowUIElements;
+toggleMenuBarsInAllPanels 1;
+setMainMenubarVisible 1;
+
+$oldMH=`window -q -height $gMainWindow`;
+window -e -titleBar (!`window -q -titleBar $gMainWindow`) $gMainWindow;
+window -e -height $oldMH $gMainWindow;
+}
+
+
+-Wire Frame (Alt+W) :
+
+string $currPanel = `getPanel -withFocus`; 
+if ("" != $currPanel && ("modelPanel" == `getPanel -to $currPanel`)) 
+{ 
+int $wosonoff = `modelEditor -q -wos $currPanel`; 
+switch ($wosonoff) 
+{ 
+case 0: modelEditor -e -wos true $currPanel; 
+break; 
+case 1: modelEditor -e -wos false $currPanel; 
+break; 
+default: break; 
+} 
+$wosonoff = `modelEditor -q -wos $currPanel`; 
+print("ShadingonWire: "+$wosonoff+"n"); 
+} else { 
+error "No modeling panel selected or invalid."; 
+} 
+
+-X Ray (Alt+X) 
+
+$currentPanel = `getPanel -withFocus`; 
+               string $panelType = `getPanel -to $currentPanel`; if ($panelType == "modelPanel") { 
+               modelEditor -e -xray ( !`modelEditor -q -xray $currentPanel` ) $currentPanel; }
+
+
